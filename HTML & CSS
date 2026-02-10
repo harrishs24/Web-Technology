@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Voting Awareness Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 12px;
+        }
+
+        nav a {
+            background-color: #1abc9c;
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            margin-right: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #16a085;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        marquee {
+            background-color: #eaf2f8;
+            padding: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin: 8px 0;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🗳️ Online Voting Awareness Portal</h1>
+    <p> Supporting one party is Good • But Knowing Your Power great</p>
+</header>
+
+<marquee behavior="alternate">
+    📢 Your Vote is Your Voice | 🇮🇳 Vote Responsibly | 🔐 Secure Digital Democracy
+</marquee>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#importance">Importance</a>
+    <a href="#process">Process</a>
+    <a href="#security">Security</a>
+</nav>
+
+<div class="container">
+
+    <div class="card" id="about">
+        <h2>📘 About Online Voting</h2>
+        <p>
+            Online voting allows citizens to cast their votes digitally using secure internet platforms.
+        </p>
+    </div>
+
+    <div class="card" id="importance">
+        <h2>⭐ Voter Awareness Checklist</h2>
+
+        <form>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox"> I understand the importance of voting
+                </label>
+                <label>
+                    <input type="checkbox"> I know my vote is confidential
+                </label>
+                <label>
+                    <input type="checkbox"> I will verify election information
+                </label>
+            </div>
+
+            <br>
+            <button type="submit">Confirm Awareness</button>
+        </form>
+    </div>
+
+    <div class="card" id="process">
+        <h2>🛠️ Online Voting Process</h2>
+        <ol>
+            <li>Voter Registration</li>
+            <li>Identity Verification</li>
+            <li>Secure Login</li>
+            <li>Vote Casting</li>
+            <li>Confirmation ✅</li>
+        </ol>
+
+        <button>Learn More</button>
+    </div>
+
+    <div class="card" id="security">
+        <h2>🔐 Security Measures</h2>
+        <p>
+            Encryption, authentication, and audit logs ensure vote privacy and prevent fraud.
+        </p>
+
+        <p><strong>System Trust Level</strong></p>
+        <meter value="0.9">90%</meter>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Online Voting Awareness Portal</p>
+    <p>Created by Harrish S</p>
+</footer>
+<script src = "loginpage.js"></script>
+</body>
+</html>
