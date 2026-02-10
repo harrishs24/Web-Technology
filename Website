@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Voting Awareness Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        /* LOGIN */
+        .login-box {
+            width: 350px;
+            margin: 100px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .login-box h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        /* PORTAL */
+        #portal {
+            display: none;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 12px;
+        }
+
+        nav a {
+            background-color: #1abc9c;
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            margin-right: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="login-box" id="login">
+    <h2>User Login</h2>
+    <input type="email" placeholder="E-mail">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- PORTAL PAGE -->
+<div id="portal">
+    <header>
+        <h1>🗳️ Online Voting Awareness Portal</h1>
+        <p>Supporting one party is good • Knowing your power is greater</p>
+    </header>
+
+    <marquee>📢 Your Vote is Your Voice | 🇮🇳 Vote Responsibly | 🔐 Secure Democracy</marquee>
+
+    <nav>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('importance')">Importance</a>
+    <a href="#" onclick="showSection('process')">Process</a>
+    <a href="#" onclick="showSection('security')">Security</a>
+</nav>
+
+
+    <div class="container">
+        <div class="card" id="about">
+            <h2>About Online Voting</h2>
+            <p>Online voting allows citizens to vote securely using digital platforms.</p>
+        </div>
+
+        <div class="card" id="importance">
+            <h2>Voter Awareness</h2>
+            <p>Voting is a fundamental right and responsibility.</p>
+        </div>
+
+        <div class="card" id="process">
+            <h2>Voting Process</h2>
+            <ol>
+                <li>Registration</li>
+                <li>Verification</li>
+                <li>Secure Login</li>
+                <li>Vote Cast</li>
+            </ol>
+        </div>
+
+        <div class="card" id="security">
+            <h2>Security</h2>
+            <p>Encryption and authentication protect your vote.</p>
+            <meter value="0.9">90%</meter>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Online Voting Awareness Portal</p>
+        <p>Created by Harrish S</p>
+    </footer>
+</div>
+
+<script>
+    function showSection(id) {
+        let sections = document.querySelectorAll(".card");
+        sections.forEach(section => {
+            section.style.display = "none";
+        });
+
+        document.getElementById(id).style.display = "block";
+    }
+</script>
+
+</body>
+</html>
