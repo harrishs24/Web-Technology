@@ -13,48 +13,6 @@
             color: #333;
         }
 
-        /* LOGIN */
-        .login-box {
-            width: 350px;
-            margin: 100px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .login-box h2 {
-            text-align: center;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 12px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background-color: #1abc9c;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #16a085;
-        }
-
-        /* PORTAL */
-        #portal {
-            display: none;
-        }
-
         header {
             background-color: #2c3e50;
             color: white;
@@ -64,6 +22,7 @@
         nav {
             background-color: #34495e;
             padding: 12px;
+            text-align: center;
         }
 
         nav a {
@@ -71,8 +30,19 @@
             color: white;
             text-decoration: none;
             padding: 8px 14px;
-            margin-right: 10px;
+            margin: 5px;
             border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #16a085;
+        }
+
+        marquee {
+            background-color: #eaf2f8;
+            padding: 10px;
             font-weight: bold;
         }
 
@@ -85,9 +55,28 @@
         .card {
             background-color: white;
             padding: 20px;
-            margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 15px;
         }
 
         footer {
@@ -102,74 +91,96 @@
 
 <body>
 
-<!-- LOGIN PAGE -->
-<div class="login-box" id="login">
-    <h2>User Login</h2>
-    <input type="email" placeholder="E-mail">
-    <input type="password" placeholder="Password">
-    <button onclick="login()">Login</button>
-</div>
+<header>
+    <h1>🗳️ Online Voting Awareness Portal</h1>
+    <p>Supporting one party is good • Knowing your power is greater</p>
+</header>
 
-<!-- PORTAL PAGE -->
-<div id="portal">
-    <header>
-        <h1>🗳️ Online Voting Awareness Portal</h1>
-        <p>Supporting one party is good • Knowing your power is greater</p>
-    </header>
+<marquee>📢 Your Vote is Your Voice | 🇮🇳 Vote Responsibly | 🔐 Secure Democracy</marquee>
 
-    <marquee>📢 Your Vote is Your Voice | 🇮🇳 Vote Responsibly | 🔐 Secure Democracy</marquee>
-
-    <nav>
+<nav>
     <a href="#" onclick="showSection('about')">About</a>
     <a href="#" onclick="showSection('importance')">Importance</a>
     <a href="#" onclick="showSection('process')">Process</a>
     <a href="#" onclick="showSection('security')">Security</a>
+    <a href="#" onclick="showSection('register')">Registration</a>
 </nav>
 
+<div class="container">
 
-    <div class="container">
-        <div class="card" id="about">
-            <h2>About Online Voting</h2>
-            <p>Online voting allows citizens to vote securely using digital platforms.</p>
-        </div>
-
-        <div class="card" id="importance">
-            <h2>Voter Awareness</h2>
-            <p>Voting is a fundamental right and responsibility.</p>
-        </div>
-
-        <div class="card" id="process">
-            <h2>Voting Process</h2>
-            <ol>
-                <li>Registration</li>
-                <li>Verification</li>
-                <li>Secure Login</li>
-                <li>Vote Cast</li>
-            </ol>
-        </div>
-
-        <div class="card" id="security">
-            <h2>Security</h2>
-            <p>Encryption and authentication protect your vote.</p>
-            <meter value="0.9">90%</meter>
-        </div>
+    <div class="card" id="about">
+        <h2>📘 About Online Voting</h2>
+        <p>
+            Online voting allows citizens to cast their votes through secure digital platforms,
+            improving accessibility and participation in elections.
+        </p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Online Voting Awareness Portal</p>
-        <p>Created by Harrish S</p>
-    </footer>
+    <div class="card" id="importance">
+        <h2>⭐ Importance of Voting</h2>
+        <p>
+            Voting is a fundamental democratic right. It enables citizens to choose their leaders
+            and actively participate in governance.
+        </p>
+    </div>
+
+    <div class="card" id="process">
+        <h2>🛠️ Online Voting Process</h2>
+        <ol>
+            <li>Voter Registration</li>
+            <li>Identity Verification</li>
+            <li>Secure Authentication</li>
+            <li>Vote Casting</li>
+            <li>Confirmation</li>
+        </ol>
+    </div>
+
+    <div class="card" id="security">
+        <h2>🔐 Security Measures</h2>
+        <p>
+            Strong encryption, authentication, and audit logs are used to ensure vote privacy
+            and prevent fraud.
+        </p>
+        <meter value="0.9">90%</meter>
+    </div>
+
+    <!-- REGISTRATION SECTION -->
+    <div class="card" id="register">
+        <h2>📝 Voter Registration</h2>
+
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Voter ID Number" required>
+
+            <select required>
+                <option value="">Select State</option>
+                <option>Tamil Nadu</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Andhra Pradesh</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
 </div>
 
-<script>
-    function showSection(id) {
-        let sections = document.querySelectorAll(".card");
-        sections.forEach(section => {
-            section.style.display = "none";
-        });
+<footer>
+    <p>&copy; 2026 Online Voting Awareness Portal</p>
+    <p>Created by Harrish S</p>
+</footer>
 
-        document.getElementById(id).style.display = "block";
-    }
+<script>
+function showSection(id) {
+    let sections = document.querySelectorAll(".card");
+    sections.forEach(section => section.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+// default section
+showSection("about");
 </script>
 
 </body>
