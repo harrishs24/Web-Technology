@@ -1,95 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Online Voting Awareness Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Online Voting Awareness Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
 
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-        }
+/* COMMON */
+button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 15px;
+}
+button:hover { background-color: #16a085; }
 
-        nav {
-            background-color: #34495e;
-            padding: 12px;
-            text-align: center;
-        }
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
-        nav a {
-            background-color: #1abc9c;
-            color: white;
-            text-decoration: none;
-            padding: 8px 14px;
-            margin: 5px;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
-        }
+/* LOGIN & REGISTER BOX */
+.box {
+    width: 360px;
+    margin: 100px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.box h2 { text-align: center; }
+.link {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #1abc9c;
+}
 
-        nav a:hover {
-            background-color: #16a085;
-        }
+/* PORTAL */
+#portal { display: none; }
 
-        marquee {
-            background-color: #eaf2f8;
-            padding: 10px;
-            font-weight: bold;
-        }
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+nav {
+    background-color: #34495e;
+    padding: 12px;
+    text-align: center;
+}
+nav a {
+    background-color: #1abc9c;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+nav a:hover { background-color: #16a085; }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
+marquee {
+    background-color: #eaf2f8;
+    padding: 10px;
+    font-weight: bold;
+}
 
-        .card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            display: none;
-        }
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: none;
+}
 
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background-color: #1abc9c;
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-size: 15px;
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            margin-top: 30px;
-        }
-    </style>
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 30px;
+}
+</style>
 </head>
 
 <body>
+
+<!-- LOGIN -->
+<div class="box" id="login">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="openPortal()">Login</button>
+    <div class="link" onclick="showRegister()">New user? Register</div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div class="box" id="registerPage" style="display:none;">
+    <h2>Registration</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="Voter ID">
+    <select>
+        <option>Select State</option>
+        <option>Tamil Nadu</option>
+        <option>Karnataka</option>
+        <option>Kerala</option>
+        <option>Andhra Pradesh</option>
+    </select>
+    <button onclick="showLogin()">Register</button>
+    <div class="link" onclick="showLogin()">Already registered? Login</div>
+</div>
+
+<!-- PORTAL -->
+<div id="portal">
 
 <header>
     <h1>🗳️ Online Voting Awareness Portal</h1>
@@ -111,16 +155,15 @@
     <div class="card" id="about">
         <h2>📘 About Online Voting</h2>
         <p>
-            Online voting allows citizens to cast their votes through secure digital platforms,
-            improving accessibility and participation in elections.
+            Online voting allows citizens to cast votes securely using digital platforms,
+            improving accessibility and participation.
         </p>
     </div>
 
     <div class="card" id="importance">
         <h2>⭐ Importance of Voting</h2>
         <p>
-            Voting is a fundamental democratic right. It enables citizens to choose their leaders
-            and actively participate in governance.
+            Voting is a fundamental democratic right and strengthens the nation.
         </p>
     </div>
 
@@ -138,21 +181,18 @@
     <div class="card" id="security">
         <h2>🔐 Security Measures</h2>
         <p>
-            Strong encryption, authentication, and audit logs are used to ensure vote privacy
-            and prevent fraud.
+            Encryption, authentication, and audit logs ensure vote privacy.
         </p>
         <meter value="0.9">90%</meter>
     </div>
 
-    <!-- REGISTRATION SECTION -->
+    <!-- REGISTRATION SECTION INSIDE PORTAL -->
     <div class="card" id="register">
         <h2>📝 Voter Registration</h2>
-
         <form>
             <input type="text" placeholder="Full Name" required>
             <input type="email" placeholder="Email Address" required>
             <input type="text" placeholder="Voter ID Number" required>
-
             <select required>
                 <option value="">Select State</option>
                 <option>Tamil Nadu</option>
@@ -160,7 +200,6 @@
                 <option>Kerala</option>
                 <option>Andhra Pradesh</option>
             </select>
-
             <button type="submit">Register</button>
         </form>
     </div>
@@ -172,15 +211,27 @@
     <p>Created by Harrish S</p>
 </footer>
 
-<script>
-function showSection(id) {
-    let sections = document.querySelectorAll(".card");
-    sections.forEach(section => section.style.display = "none");
-    document.getElementById(id).style.display = "block";
-}
+</div>
 
-// default section
-showSection("about");
+<script>
+function showRegister() {
+    login.style.display = "none";
+    registerPage.style.display = "block";
+}
+function showLogin() {
+    registerPage.style.display = "none";
+    login.style.display = "block";
+}
+function openPortal() {
+    login.style.display = "none";
+    registerPage.style.display = "none";
+    portal.style.display = "block";
+    showSection("about");
+}
+function showSection(id) {
+    document.querySelectorAll(".card").forEach(c => c.style.display="none");
+    document.getElementById(id).style.display="block";
+}
 </script>
 
 </body>
