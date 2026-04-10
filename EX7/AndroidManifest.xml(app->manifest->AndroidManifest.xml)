@@ -1,0 +1,64 @@
+package com.example.calculatorapp
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    lateinit var num1: EditText
+    lateinit var num2: EditText
+
+    lateinit var add: Button
+    lateinit var sub: Button
+    lateinit var mul: Button
+    lateinit var div: Button
+
+    lateinit var result: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        num1 = findViewById(R.id.num1)
+        num2 = findViewById(R.id.num2)
+
+        add = findViewById(R.id.add)
+        sub = findViewById(R.id.sub)
+        mul = findViewById(R.id.mul)
+        div = findViewById(R.id.div)
+
+        result = findViewById(R.id.result)
+
+        add.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
+            result.text = "Result: ${n1 + n2}"
+        }
+
+        sub.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
+            result.text = "Result: ${n1 - n2}"
+        }
+
+        mul.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
+            result.text = "Result: ${n1 * n2}"
+        }
+
+        div.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
+
+            if (n2 == 0.0) {
+                result.text = "Cannot divide by zero"
+            } else {
+                result.text = "Result: ${n1 / n2}"
+            }
+        }
+    }
+}
