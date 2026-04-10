@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+    <servlet-name>MethodServlet</servlet-name>
+    <servlet-class>MethodServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>MethodServlet</servlet-name>
+    <url-pattern>/MethodServlet</url-pattern>
+</servlet-mapping>
+
+</web-app>
